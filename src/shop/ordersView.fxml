@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="shop.OrdersController">
+   <children>
+      <TabPane fx:id="TabPane" layoutY="-8.0" prefHeight="402.0" prefWidth="820.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <tabs>
+          <Tab fx:id="completeOrdersTab" text="Complete orders">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="completeOrdersPane" prefHeight="372.0" prefWidth="820.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <columns>
+                              <TableColumn fx:id="completeIdColumn" prefWidth="75.0" text="ID" />
+                              <TableColumn fx:id="completeFromColumn" prefWidth="75.0" text="FROM" />
+                              <TableColumn fx:id="completeToColumn" prefWidth="75.0" text="TO" />
+                              <TableColumn fx:id="completeDescriptionColumn" prefWidth="200.0" text="MESSAGE" />
+                           </columns>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab fx:id="pendingOrdersTab" text="Pending orders">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="pendingOrdersTable" prefHeight="372.0" prefWidth="820.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <columns>
+                              <TableColumn fx:id="pendingIdColumn" prefWidth="75.0" text="ID" />
+                              <TableColumn fx:id="pendingFromColumn" prefWidth="75.0" text="FROM" />
+                              <TableColumn fx:id="pendingToColumn" prefWidth="75.0" text="TO" />
+                              <TableColumn fx:id="pendingMessageColumn" prefWidth="200.0" text="MESSAGE" />
+                           </columns>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+            <Tab fx:id="createNewTab" text="Create new">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="385.0" prefWidth="656.0">
+                     <children>
+                        <Button layoutX="698.0" layoutY="28.0" mnemonicParsing="false" onAction="#addNewOrder" prefHeight="40.0" prefWidth="80.0" text="Order" />
+                        <Button layoutX="698.0" layoutY="83.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="80.0" text="Cancel" />
+                        <TextField fx:id="newOrderTo" layoutX="223.0" layoutY="48.0" prefHeight="40.0" prefWidth="170.0" promptText="To" />
+                        <TextField fx:id="newOrderFrom" layoutX="14.0" layoutY="48.0" prefHeight="40.0" prefWidth="170.0" promptText="From" />
+                        <TextArea fx:id="newOrderMessage" layoutX="14.0" layoutY="170.0" prefHeight="286.0" prefWidth="447.0" promptText="Message" />
+                        <Label layoutX="14.0" layoutY="144.0" text="Message:" />
+                     </children></AnchorPane>
+              </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>

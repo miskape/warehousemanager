@@ -1,0 +1,5 @@
+/bin
+/target
+mainWareHouse.WarehouseItem
+mainWareHouse.Order
+shop.ShopItem

@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Point3D?>
+<?import javafx.scene.control.ContextMenu?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.effect.Blend?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<AnchorPane prefHeight="650.0" prefWidth="1060.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mainWarehouse.Controller">
+
+   <children>
+      <MenuBar layoutY="1.0" minHeight="0.0" minWidth="0.0" prefHeight="650.0" prefWidth="1200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <menus>
+          <Menu fx:id="fileMenu" mnemonicParsing="false" text="File">
+            <items>
+                  <MenuItem fx:id="ordersButton" mnemonicParsing="false" onAction="#ordersView" text="Orders" />
+                  <MenuItem fx:id="addNewItem" mnemonicParsing="false" onAction="#addNewItemButton" text="Add new item" />
+                  <MenuItem fx:id="refreshItems" mnemonicParsing="false" onAction="#refreshTable" text="Refresh" />
+                  <MenuItem fx:id="settings" mnemonicParsing="false" text="Settings" />
+              <MenuItem fx:id="exit" mnemonicParsing="false" onAction="#closeStage" text="Exit" />
+            </items>
+          </Menu>
+          <Menu fx:id="editMenu" mnemonicParsing="false" text="Edit">
+            <items>
+              <MenuItem fx:id="deleteButton" mnemonicParsing="false" text="Delete" />
+            </items>
+          </Menu>
+          <Menu fx:id="helpMenu" mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem fx:id="aboutButton" mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+            <Menu fx:id="language" mnemonicParsing="false" text="Language">
+              <items>
+                <MenuItem mnemonicParsing="false" onAction="#btnEN" text="EN" />
+                  <MenuItem mnemonicParsing="false" onAction="#btnFI" text="FI" />
+              </items>
+            </Menu>
+        </menus>
+      </MenuBar>
+      <AnchorPane layoutY="32.0" prefHeight="650.0" prefWidth="1050.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0">
+         <children>
+            <SplitPane dividerPositions="0.3185595567867036" minHeight="-Infinity" minWidth="-Infinity" prefHeight="625.0" prefWidth="1200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+              <items>
+                  <GridPane maxHeight="1.7976931348623157E308" maxWidth="246.0" minHeight="0.0" minWidth="246.0" prefHeight="606.0" prefWidth="246.0" SplitPane.resizableWithParent="false">
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+      
+                     <children>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="605.0" prefWidth="90.0">
+                           <children>
+                              <TextField fx:id="searchbar" layoutX="68.0" layoutY="20.0" onAction="#searchItem" prefHeight="31.0" prefWidth="167.0" />
+                              <Label fx:id="searchLabel" layoutX="14.0" layoutY="25.0" text="Search:" />
+                              <Label fx:id="additionalInfoLabel" layoutX="14.0" layoutY="190.0" text="Additional info:" />
+                              <Label fx:id="searchByLabel" layoutX="14.0" layoutY="60.0" text="Search by:" />
+                              <VBox layoutX="48.0" layoutY="81.0">
+                                 <children>
+                                    <RadioButton fx:id="nameRadioButton" layoutX="15.0" layoutY="81.0" mnemonicParsing="false" text="Name">
+                                       <toggleGroup>
+                                          <ToggleGroup fx:id="searchgroup" />
+                                       </toggleGroup></RadioButton>
+                                    <RadioButton fx:id="idRadioButton" layoutX="17.0" layoutY="111.0" mnemonicParsing="false" text="ID" toggleGroup="$searchgroup" />
+                                    <RadioButton fx:id="descriptionRadioButton" layoutX="8.0" layoutY="132.0" mnemonicParsing="false" text="Description" toggleGroup="$searchgroup" />
+                                    <RadioButton fx:id="categoryRadioButton" layoutX="20.0" layoutY="171.0" mnemonicParsing="false" text="Category" toggleGroup="$searchgroup" />
+                                 </children>
+                              </VBox>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </GridPane>
+                <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="0.0" minWidth="0.0" prefHeight="216.0" prefWidth="102.0">
+                     <children>
+                        <TableView fx:id="table" minHeight="0.0" minWidth="0.0" prefHeight="624.0" prefWidth="813.6" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                          <columns>
+                            <TableColumn fx:id="id" editable="false" maxWidth="100.0" minWidth="60.0" prefWidth="60.0" text="ID" />
+                            <TableColumn fx:id="name" editable="false" maxWidth="2000.0" minWidth="200.0" prefWidth="200.0" text="Name" />
+                              <TableColumn fx:id="amount" editable="false" maxWidth="112.0" minWidth="70.0" prefWidth="112.0" text="Amount" />
+                              <TableColumn fx:id="price" editable="false" maxWidth="2000.0" minWidth="80.0" prefWidth="117.0" text="Price" />
+                              <TableColumn fx:id="description" editable="false" minWidth="200.0" prefWidth="222.0" text="Description" />
+                              <TableColumn fx:id="category" editable="false" minWidth="200.0" prefWidth="232.0" text="Category" />
+<!--                               <TableColumn fx:id="Category" editable="false" minWidth="200.0" prefWidth="200.0" text="Category" /> -->
+                        
+                                </columns>
+                           <contextMenu>
+                              <ContextMenu>
+                                <items>
+                        			<MenuItem fx:id="deleteItem" mnemonicParsing="false" onAction="#deleteItem" text="Delete" /> 
+                        			<MenuItem fx:id="sendItem" mnemonicParsing="false" onAction="#sendItemToShop" text="Send to shop" />
+                                </items>
+                              </ContextMenu>
+                           </contextMenu>
+                           <rotationAxis>
+                              <Point3D z="-1.0" />
+                           </rotationAxis>
+                           <effect>
+                              <Blend />
+                           </effect>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+              </items>
+            </SplitPane>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

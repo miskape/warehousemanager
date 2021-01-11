@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ContextMenu?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+
+<VBox xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="shop.ShopController">
+  <children>
+    <MenuBar maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="32.0" prefWidth="989.0">
+      <menus>
+        <Menu fx:id="fileMenu" mnemonicParsing="false" text="File">
+          <items>
+
+            <MenuItem fx:id="refreshItems" mnemonicParsing="false" onAction="#refreshTable" text="Refresh" />
+            <MenuItem fx:id="addNewItem" mnemonicParsing="false" onAction="#addNewItemButton" text="Add New Item" />
+
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem fx:id="exit" mnemonicParsing="false" text="Quit" />
+          </items>
+        </Menu>
+        <Menu fx:id="editMenu" mnemonicParsing="false" text="Edit">
+          <items>
+            <MenuItem fx:id="undo" mnemonicParsing="false" text="Undo" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem fx:id="delete" mnemonicParsing="false" text="Delete" />
+          </items>
+        </Menu>
+        <Menu fx:id="helpMenu" mnemonicParsing="false" text="Help">
+          <items>
+            <MenuItem fx:id="about" mnemonicParsing="false" text="About MyHelloApp" />
+          </items>
+        </Menu>
+            <Menu fx:id="languageMenu" mnemonicParsing="false" text="Language">
+              <items>
+                <MenuItem mnemonicParsing="false" onAction="#itemEN" text="EN" />
+                  <MenuItem mnemonicParsing="false" onAction="#itemFI" text="FI" />
+              </items>
+            </Menu>
+      </menus>
+    </MenuBar>
+    <SplitPane focusTraversable="true" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+      <items>
+            <HBox>
+               <children>
+            <AnchorPane id="Content" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="529.0" prefWidth="278.0">
+                     <children>
+                        <Text fx:id="search" layoutX="14.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Search:" />
+                        <TextField layoutX="71.0" layoutY="35.0" />
+                        <VBox layoutX="71.0" layoutY="83.0">
+                           <children>
+                              <RadioButton fx:id="idRadioButton" layoutX="41.0" layoutY="68.0" mnemonicParsing="false" text="By ID">
+                                 <toggleGroup>
+                                    <ToggleGroup fx:id="searchButtons" />
+                                 </toggleGroup></RadioButton>
+                              <RadioButton fx:id="nameRadioButton" layoutX="41.0" layoutY="95.0" mnemonicParsing="false" text="By Name" toggleGroup="$searchButtons" />
+                              <RadioButton fx:id="descriptionRadioButton" layoutX="41.0" layoutY="125.0" mnemonicParsing="false" text="By Description" toggleGroup="$searchButtons" />
+                              <RadioButton fx:id="categoryRadioButton" mnemonicParsing="false" text="By Category" toggleGroup="$searchButtons" />
+                           </children>
+                        </VBox>
+                     </children>
+            </AnchorPane>
+                  <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity">
+                     <children>
+                        <TableView fx:id="table" layoutX="26.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="545.0" prefWidth="900.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-0.0" AnchorPane.topAnchor="0.0">
+                          <columns>
+                            <TableColumn fx:id="id" prefWidth="59.0" text="ID" />
+                            <TableColumn fx:id="name" prefWidth="167.0" text="Name" />
+                              <TableColumn fx:id="amount" minWidth="0.0" prefWidth="143.0" text="Amount" />
+                              <TableColumn fx:id="price" minWidth="0.0" prefWidth="124.0" text="Price" />
+                              <TableColumn fx:id="description" minWidth="0.0" prefWidth="176.0" text="Description" />
+                              <TableColumn fx:id="category" prefWidth="229.0" text="Category" />
+                          </columns>
+                          <contextMenu>
+                        <ContextMenu>
+                          <items>
+                            <MenuItem fx:id="rightclick" mnemonicParsing="false" onAction="#deleteItem" text="Delete" />
+                          </items>
+                        </ContextMenu>
+                     </contextMenu>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </HBox>
+      </items>
+    </SplitPane>
+  </children>
+</VBox>

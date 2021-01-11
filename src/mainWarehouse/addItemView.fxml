@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="219.0" prefWidth="1201.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mainWarehouse.NewItemController">
+   <children>
+      <Button fx:id="addButton" layoutX="448.0" layoutY="136.0" mnemonicParsing="false" onAction="#addItem" prefHeight="32.0" prefWidth="152.0" text="Save" />
+      <Button fx:id="cancelButton" layoutX="618.0" layoutY="136.0" mnemonicParsing="false" onAction="#closeStage" prefHeight="32.0" prefWidth="152.0" text="Cancel" />
+      <TextField fx:id="nameInput" layoutX="86.0" layoutY="61.0" promptText="Add Name" />
+      <TextField fx:id="amountInput" layoutX="300.0" layoutY="61.0" promptText="Add Amount" />
+      <TextField fx:id="priceInput" layoutX="524.0" layoutY="61.0" promptText="Add Price" />
+      <TextField fx:id="descriptionInput" layoutX="742.0" layoutY="61.0" promptText="Add Description" />
+      <Text layoutX="86.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add Name" />
+      <Text layoutX="300.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add Amount" />
+      <Text layoutX="524.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add Price" />
+      <Text layoutX="742.0" layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add Description" />
+      <Text layoutX="958.0" layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add Category" />
+      <TextField fx:id="categoryInput" layoutX="958.0" layoutY="61.0" promptText="Add Category" />
+   </children>
+</AnchorPane>
